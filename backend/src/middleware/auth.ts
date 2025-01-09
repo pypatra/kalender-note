@@ -23,7 +23,6 @@ export const auth = async (
       return;
     }
 
-    // verify if the token is valid
     const verified = jwt.verify(token, "passwordKey");
 
     if (!verified) {

@@ -46,7 +46,7 @@ taskRouter.delete("/", auth, async (req: AuthRequest, res) => {
 taskRouter.post("/sync", auth, async (req: AuthRequest, res) => {
   try {
     const tasksList = req.body;
-
+    console.log(tasksList);
     const filteredTasks: NewTask[] = [];
 
     for (let t of tasksList) {

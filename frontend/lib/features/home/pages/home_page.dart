@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     final user = context.read<AuthCubit>().state as AuthLoggedIn;
     context.read<TasksCubit>().getAllTasks(token: user.user.token);
     Connectivity().onConnectivityChanged.listen((data) async {
-      if (data.contains(ConnectivityResult.wifi)) {
+      if (data.contains(ConnectivityResult.wifi) || data.contains(ConnectivityResult.mobile)) {
         // ignore: use_build_context_synchronously
         await context.read<TasksCubit>().syncTasks(user.user.token);
       }
